@@ -39,7 +39,7 @@ export default {
         email: formData.email,
         password: formData.password
       });
-      this.$router.push("/dashboard");
+      this.$router.replace("/dashboard");
     }
   }
 };
