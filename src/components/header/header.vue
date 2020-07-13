@@ -44,7 +44,7 @@ export default {
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #521751;
+  background-color: #2196f3;
   padding: 0 20px;
 }
 
@@ -84,7 +84,7 @@ li a {
 li a:hover,
 li a:active,
 li a.router-link-active {
-  color: #fa923f;
+  color: #01579b;
 }
 
 .logout {
