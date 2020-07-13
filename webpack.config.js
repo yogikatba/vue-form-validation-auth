@@ -1,5 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
+const Dotenv = require('dotenv-webpack');
+
 
 module.exports = {
   entry: './src/main.js',
@@ -8,14 +10,15 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js'
   },
+  plugins: [
+    new Dotenv()
+  ],
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: {
-          }
+          loaders: {}
           // other vue-loader options go here
         }
       },

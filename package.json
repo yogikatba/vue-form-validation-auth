@@ -2,7 +2,7 @@
   "name": "vue-update",
   "description": "Vue Auth & more",
   "version": "1.0.0",
-  "author": "Maximilian Schwarzmüller <business@academind.com>",
+  "author": "Yogi Katba <yogikatba16@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
@@ -21,6 +21,7 @@
     "babel-preset-env": "^1.6.0",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
+    "dotenv-webpack": "^2.0.0",
     "file-loader": "^1.1.4",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",

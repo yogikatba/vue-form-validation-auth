@@ -20,7 +20,6 @@
 
 <script>
 //import router from "vue-router";
-
 export default {
   data() {
     return {
@@ -35,6 +34,7 @@ export default {
         password: this.password
       };
       console.log(formData);
+      console.log(process.env.VUE_APP_API);
       this.$store.dispatch("login", {
         email: formData.email,
         password: formData.password

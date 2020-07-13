@@ -39,7 +39,7 @@ export default new Vuex.Store({
       dispatch
     }, authData) {
       //AIzaSyDeZxBEdBTXCun-9EaGBWUDbDga6W1MNZE
-      axios.post('/signupNewUser?key=' + process.env.VUE_APP_API, {
+      axios.post('/signupNewUser?key=' + process.env.VUE_APP_APIKEY, {
           email: authData.email,
           password: authData.password,
           returnSecureToken: true
@@ -64,7 +64,7 @@ export default new Vuex.Store({
       commit,
       dispatch
     }, authData) {
-      axios.post('/verifyPassword?key=' + process.env.VUE_APP_API, {
+      axios.post('/verifyPassword?key=' + process.env.VUE_APP_APIKEY, {
           email: authData.email,
           password: authData.password,
           returnSecureToken: true
