@@ -125,13 +125,14 @@
       email: {
         required,
         email,
-        // unique: val => {
-        //   if (val === '') return true
-        //   return axios.get('/users.json?orderBy="email"&equalTo="' + val + '"')
-        //     .then(res => {
-        //       return Object.keys(res.data).length === 0
-        //     })
-        // }
+        // unique: (val) => {
+        //   if (val === "") return true;
+        //   return axios
+        //     .get('/users.json?orderBy="email"&equalTo="' + val + '"')
+        //     .then((res) => {
+        //       return Object.keys(res.data).length === 0;
+        //     });
+        //},
       },
       age: {
         required,
@@ -143,7 +144,7 @@
         minLen: minLength(6),
       },
       confirmPassword: {
-        //        sameAs: sameAs('password')
+        //  sameAs: sameAs('password')
         sameAs: sameAs((vm) => {
           return vm.password;
         }),
@@ -159,7 +160,7 @@
         $each: {
           value: {
             required,
-            minLen: minLength(5),
+            minLen: minLength(4),
           },
         },
       },
