@@ -33,7 +33,6 @@ export default new Vuex.Store({
       }, expirationTime * 1000);
     },
     signup({ commit, dispatch }, authData) {
-      //AIzaSyDeZxBEdBTXCun-9EaGBWUDbDga6W1MNZE
       axios
         .post("/signupNewUser?key=" + process.env.VUE_APP_APIKEY, {
           email: authData.email,
