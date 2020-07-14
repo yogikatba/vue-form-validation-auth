@@ -13,12 +13,12 @@
     computed: {
       email() {
         return !this.$store.getters.user
-          ? false
+          ? localStorage.getItem("email")
           : this.$store.getters.user.email;
       },
     },
     created() {
-      this.$store.dispatch("fetchUser");
+      //this.$store.dispatch("fetchUser");
     },
   };
 </script>

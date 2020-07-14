@@ -51,6 +51,7 @@ export default new Vuex.Store({
           );
           localStorage.setItem("token", res.data.idToken);
           localStorage.setItem("userId", res.data.localId);
+          localStorage.setItem("email", authData.email);
           localStorage.setItem("expirationDate", expirationDate);
           dispatch("storeUser", authData);
           dispatch("setLogoutTimer", res.data.expiresIn);
@@ -72,11 +73,13 @@ export default new Vuex.Store({
           );
           localStorage.setItem("token", res.data.idToken);
           localStorage.setItem("userId", res.data.localId);
+          localStorage.setItem("email", authData.email);
           localStorage.setItem("expirationDate", expirationDate);
           commit("authUser", {
             token: res.data.idToken,
             userId: res.data.localId,
           });
+          commit("storeUser", authData);
           dispatch("setLogoutTimer", res.data.expiresIn);
         })
         .catch((error) => console.log(error));
@@ -102,6 +105,7 @@ export default new Vuex.Store({
       localStorage.removeItem("expirationDate");
       localStorage.removeItem("token");
       localStorage.removeItem("userId");
+      localStorage.removeItem("email");
       router.replace("/signin");
     },
     storeUser({ commit, state }, userData) {
@@ -113,26 +117,26 @@ export default new Vuex.Store({
         .then((res) => console.log(res))
         .catch((error) => console.log(error));
     },
-    fetchUser({ commit, state }) {
-      if (!state.idToken) {
-        return;
-      }
-      globalAxios
-        .get("/users.json" + "?auth=" + state.idToken)
-        .then((res) => {
-          console.log(res);
-          const data = res.data;
-          const users = [];
-          for (let key in data) {
-            const user = data[key];
-            user.id = key;
-            users.push(user);
-          }
-          console.log(users);
-          commit("storeUser", users[0]);
-        })
-        .catch((error) => console.log(error));
-    },
+    // fetchUser({ commit, state }) {
+    //   if (!state.idToken) {
+    //     return;
+    //   }
+    //   globalAxios
+    //     .get("/users.json" + "?auth=" + state.idToken)
+    //     .then((res) => {
+    //       console.log(res);
+    //       const data = res.data;
+    //       const users = [];
+    //       for (let key in data) {
+    //         const user = data[key];
+    //         user.id = key;
+    //         users.push(user);
+    //       }
+    //       console.log(users);
+    //       //commit("storeUser", users[users.length - 1]);
+    //     })
+    //     .catch((error) => console.log(error));
+    //},
   },
   getters: {
     user(state) {

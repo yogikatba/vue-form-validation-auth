@@ -188,6 +188,7 @@
         };
         console.log(formData);
         this.$store.dispatch("signup", formData);
+        this.$router.replace("/dashboard");
       },
     },
   };
