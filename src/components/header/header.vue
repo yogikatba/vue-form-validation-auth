@@ -23,75 +23,75 @@
 </template>
 
 <script>
-export default {
-  computed: {
-    auth() {
-      return this.$store.getters.isAuthenticated;
-    }
-  },
-  methods: {
-    onLogout() {
-      this.$store.dispatch("logout");
-    }
-  }
-};
+  export default {
+    computed: {
+      auth() {
+        return this.$store.getters.isAuthenticated;
+      },
+    },
+    methods: {
+      onLogout() {
+        this.$store.dispatch("logout");
+      },
+    },
+  };
 </script>
 
 <style scoped>
-#header {
-  height: 56px;
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2196f3;
-  padding: 0 20px;
-}
+  #header {
+    height: 56px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2196f3;
+    padding: 0 20px;
+  }
 
-.logo {
-  font-weight: bold;
-  color: white;
-}
+  .logo {
+    font-weight: bold;
+    color: white;
+  }
 
-.logo a {
-  text-decoration: none;
-  color: white;
-}
+  .logo a {
+    text-decoration: none;
+    color: white;
+  }
 
-nav {
-  height: 100%;
-}
+  nav {
+    height: 100%;
+  }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-}
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+  }
 
-li {
-  margin: 0 16px;
-}
+  li {
+    margin: 0 16px;
+  }
 
-li a {
-  text-decoration: none;
-  color: white;
-}
+  li a {
+    text-decoration: none;
+    color: white;
+  }
 
-li a:hover,
-li a:active,
-li a.router-link-active {
-  color: #01579b;
-}
+  li a:hover,
+  li a:active,
+  li a.router-link-active {
+    color: #01579b;
+  }
 
-.logout {
-  background-color: transparent;
-  border: none;
-  font: inherit;
-  color: white;
-  cursor: pointer;
-}
+  .logout {
+    background-color: transparent;
+    border: none;
+    font: inherit;
+    color: white;
+    cursor: pointer;
+  }
 </style>
