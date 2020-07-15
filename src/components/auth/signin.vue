@@ -39,7 +39,6 @@
           email: formData.email,
           password: formData.password,
         });
-        this.$router.replace("/dashboard");
       },
     },
   };
