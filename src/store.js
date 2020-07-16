@@ -27,9 +27,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    setLogoutTimer({ commit }, expirationTime) {
+    setLogoutTimer({ dispatch }, expirationTime) {
       setTimeout(() => {
-        commit("clearAuthData");
+        dispatch("logout");
       }, expirationTime * 1000);
     },
     signup({ commit, dispatch }, authData) {
