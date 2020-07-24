@@ -13,15 +13,15 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    component: WelcomePage,
+    component: WelcomePage
   },
   {
     path: "/signup",
-    component: SignupPage,
+    component: SignupPage
   },
   {
     path: "/signin",
-    component: SigninPage,
+    component: SigninPage
   },
   {
     path: "/dashboard",
@@ -32,11 +32,11 @@ const routes = [
       } else {
         next("/signin");
       }
-    },
-  },
+    }
+  }
 ];
 
 export default new VueRouter({
   mode: "history",
-  routes,
+  routes
 });

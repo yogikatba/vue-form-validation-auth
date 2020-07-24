@@ -11,7 +11,7 @@ export default new Vuex.Store({
   state: {
     idToken: null,
     userId: null,
-    user: null,
+    user: null
   },
   mutations: {
     authUser(state, userData) {
@@ -24,7 +24,7 @@ export default new Vuex.Store({
     clearAuthData(state) {
       state.idToken = null;
       state.userId = null;
-    },
+    }
   },
   actions: {
     setLogoutTimer({ dispatch }, expirationTime) {
@@ -37,13 +37,13 @@ export default new Vuex.Store({
         .post("/signupNewUser?key=" + process.env.VUE_APP_APIKEY, {
           email: authData.email,
           password: authData.password,
-          returnSecureToken: true,
+          returnSecureToken: true
         })
-        .then((res) => {
+        .then(res => {
           console.log(res);
           commit("authUser", {
             token: res.data.idToken,
-            userId: res.data.localId,
+            userId: res.data.localId
           });
           const now = new Date();
           const expirationDate = new Date(
@@ -57,16 +57,16 @@ export default new Vuex.Store({
           dispatch("setLogoutTimer", res.data.expiresIn);
           router.replace("/dashboard");
         })
-        .catch((error) => console.log(error));
+        .catch(error => console.log(error));
     },
     login({ commit, dispatch }, authData) {
       axios
         .post("/verifyPassword?key=" + process.env.VUE_APP_APIKEY, {
           email: authData.email,
           password: authData.password,
-          returnSecureToken: true,
+          returnSecureToken: true
         })
-        .then((res) => {
+        .then(res => {
           console.log(res);
           const now = new Date();
           const expirationDate = new Date(
@@ -78,13 +78,13 @@ export default new Vuex.Store({
           localStorage.setItem("expirationDate", expirationDate);
           commit("authUser", {
             token: res.data.idToken,
-            userId: res.data.localId,
+            userId: res.data.localId
           });
           commit("storeUser", authData);
           dispatch("setLogoutTimer", res.data.expiresIn);
           router.replace("/dashboard");
         })
-        .catch((error) => console.log(error));
+        .catch(error => console.log(error));
     },
     tryAutoLogin({ commit }) {
       const token = localStorage.getItem("token");
@@ -99,7 +99,7 @@ export default new Vuex.Store({
       const userId = localStorage.getItem("userId");
       commit("authUser", {
         token: token,
-        userId: userId,
+        userId: userId
       });
     },
     logout({ commit }) {
@@ -110,15 +110,15 @@ export default new Vuex.Store({
       localStorage.removeItem("email");
       router.replace("/signin");
     },
-    storeUser({ commit, state }, userData) {
+    storeUser({ state }, userData) {
       if (!state.idToken) {
         return;
       }
       globalAxios
         .post("/users.json" + "?auth=" + state.idToken, userData)
-        .then((res) => console.log(res))
-        .catch((error) => console.log(error));
-    },
+        .then(res => console.log(res))
+        .catch(error => console.log(error));
+    }
     // fetchUser({ commit, state }) {
     //   if (!state.idToken) {
     //     return;
@@ -146,6 +146,6 @@ export default new Vuex.Store({
     },
     isAuthenticated(state) {
       return state.idToken !== null;
-    },
-  },
+    }
+  }
 });
